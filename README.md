@@ -71,3 +71,37 @@ through the Quick Start steps above yourself and let me know if anything
 breaks — I'm glad to fix it. If you'd rather I run and test it directly, you
 can enable network access for this environment and I can install
 dependencies and boot both servers here.
+## Installation
+
+### Backend
+
+```bash
+cd backend
+
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python -m uvicorn app.main:app --reload
+```
+
+### Frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+### Open in Browser
+
+Frontend:
+http://localhost:5173
+
+Backend API:
+http://127.0.0.1:8000/docs
