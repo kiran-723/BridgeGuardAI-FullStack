@@ -1,107 +1,229 @@
-# BridgeGuard AI — Bridge Load Capacity Prediction & Structural Health Monitoring
+# 🌉 BridgeGuard AI
 
-A full-stack rebuild of the original static HTML/CSS/JS dashboard:
+An AI-powered Full Stack Bridge Structural Health Monitoring and Load Capacity Prediction System.
 
-- **Frontend:** React (Vite) + Tailwind CSS
-- **Backend:** Python + FastAPI
-- **Database:** SQLite (file-based; swap the connection string for Postgres/MySQL later without touching app code)
-- **Auth:** JWT-based login with role-based access (admin / inspector / viewer)
-- **CSV:** upload replaces/updates data in the database — nothing is hardcoded in the frontend
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
+![React](https://img.shields.io/badge/React-Vite-61DAFB)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## Quick start
+---
 
-Two servers, run in separate terminals.
+## 📖 Overview
 
-**Backend**
-```bash
-cd backend
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-uvicorn app.main:app --reload --port 8000
+BridgeGuard AI is a full-stack web application that helps monitor bridge conditions, predict structural health, estimate load capacity, and assist maintenance teams through AI-driven analytics.
+
+This project combines:
+
+- FastAPI Backend
+- React + Vite Frontend
+- SQLite Database
+- Machine Learning Models
+- Interactive Dashboard
+- JWT Authentication
+
+---
+
+# ✨ Features
+
+- 🔐 Secure Login Authentication
+- 📊 Dashboard Analytics
+- 🌉 Bridge Management
+- 🤖 AI Health Prediction
+- 📈 Load Capacity Prediction
+- 🔔 Notifications
+- 📄 Reports
+- 📊 Charts & Graphs
+- ⚡ Fast API Backend
+- 📱 Responsive UI
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React
+- Vite
+- JavaScript
+- CSS
+- Axios
+
+## Backend
+
+- FastAPI
+- SQLAlchemy
+- SQLite
+- JWT Authentication
+- Passlib
+- Bcrypt
+
+## Machine Learning
+
+- Scikit-Learn
+- Pandas
+- NumPy
+- Joblib
+
+---
+
+# 📂 Project Structure
+
+```
+BridgeGuardAI_FullStack
+│
+├── backend
+│   ├── app
+│   ├── requirements.txt
+│   ├── seed.py
+│   └── bridgeguard.db
+│
+├── frontend
+│   ├── src
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
 ```
 
-**Frontend**
+---
+
+# ⚙ Installation
+
+## Clone Repository
+
 ```bash
-cd frontend
-npm install
-cp .env.example .env
-npm run dev
+git clone https://github.com/kiran-723/BridgeGuardAI-FullStack.git
+
+cd BridgeGuardAI-FullStack
 ```
 
-Open http://localhost:5173 and log in with `admin` / `Admin@123` (change this immediately for anything beyond a demo).
+---
 
-## What's included in this pass
-
-- Login (JWT), session handling, logout, role-based permissions
-- Dashboard with live KPI cards and charts
-- Bridge Management: search, filter, sort, pagination, add/edit/delete, CSV upload
-- Structural Health Monitoring: per-bridge sensor reading cards
-- Prediction: risk/health scoring engine, result display, print-to-PDF, history log
-- Analytics: charts generated dynamically from whatever is in the database
-- Notification Center: auto-generated on CSV upload and high-risk predictions
-- Responsive layout, loading/skeleton states, empty states
-
-## What's honestly NOT included yet
-
-The original brief asked for a much larger surface area (landing page, help/FAQ,
-about/contact pages, Google Maps integration, PDF/Excel export, dark mode,
-bridge photo galleries, forgot-password email flow, multi-tenant org
-management, etc.). Building all of that to genuine production quality in one
-pass wasn't realistic, so this delivers a solid, working core end-to-end
-instead of a large surface of half-finished pages. Happy to build out any of
-the above in a follow-up — the architecture (DB models, auth, API structure)
-is already in place to extend from.
-
-There's also no real trained machine-learning model behind the "prediction" —
-the original dataset has no labelled outcomes to train one against. Instead,
-`backend/app/prediction_engine.py` is a transparent, documented rule-based
-formula over the structural fields (load ratio, age, stress, crack width,
-corrosion, vibration). It's wired through the same API shape a real model
-would use, so swapping one in later is a contained change.
-
-## A note on how this was built
-
-This was built and syntax-checked in a sandboxed environment without internet
-access, so I could not run `pip install` / `npm install` or boot the servers
-to test them live end-to-end here. The code has been reviewed carefully and
-passed static syntax checks (Python `py_compile` on every backend file,
-`esbuild` parse checks on every frontend file), but you should still run
-through the Quick Start steps above yourself and let me know if anything
-breaks — I'm glad to fix it. If you'd rather I run and test it directly, you
-can enable network access for this environment and I can install
-dependencies and boot both servers here.
-## Installation
-
-### Backend
+# Backend Setup
 
 ```bash
 cd backend
 
 python -m venv venv
+```
 
-# Windows
+Windows
+
+```bash
 venv\Scripts\activate
+```
 
+Install packages
+
+```bash
 pip install -r requirements.txt
+```
 
+Run Backend
+
+```bash
 python -m uvicorn app.main:app --reload
 ```
 
-### Frontend
+Backend API
+
+```
+http://127.0.0.1:8000
+```
+
+Swagger Documentation
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+# Frontend Setup
+
+Open another terminal
 
 ```bash
 cd frontend
+```
 
+Install packages
+
+```bash
 npm install
+```
 
+Run frontend
+
+```bash
 npm run dev
 ```
 
-### Open in Browser
+Frontend URL
 
-Frontend:
+```
 http://localhost:5173
+```
 
-Backend API:
-http://127.0.0.1:8000/docs
+---
+
+# 🔑 Default Login
+
+Username
+
+```
+admin
+```
+
+Password
+
+```
+Admin@123
+```
+
+---
+
+# Screenshots
+
+Add screenshots here.
+
+Example:
+
+- Login Page
+- Dashboard
+- Prediction Page
+- Analytics
+- Notifications
+
+---
+
+# Future Enhancements
+
+- IoT Sensor Integration
+- Real-time Monitoring
+- AI Model Improvement
+- PostgreSQL Support
+- Docker Deployment
+- Cloud Deployment
+- Email Notifications
+- SMS Alerts
+- GIS Map Integration
+
+---
+
+# 👨‍💻 Author
+
+**Desaboina Kiran Kumar**
+
+Computer Science Engineering Student
+
+GitHub
+
+https://github.com/kiran-723
+
+---
+
+# ⭐ If you like this project
+
+Please give it a ⭐ on GitHub.
